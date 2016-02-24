@@ -1,5 +1,0 @@
-Speech Recognition - https://pypi.python.org/pypi/SpeechRecognition/
-  PyAudio - http://people.csail.mit.edu/hubert/pyaudio/#downloads
-  
-  
-

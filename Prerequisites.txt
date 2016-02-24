@@ -3,12 +3,12 @@ Speech Recognition - https://pypi.python.org/pypi/SpeechRecognition/
   
   
 
-pocketsphinx-python
-	Pocket Sphinx
-		Sphinx Base
+pocketsphinx-python - https://github.com/bambocher/pocketsphinx-python
+	Pocket Sphinx - http://cmusphinx.sourceforge.net/wiki/download
+		Sphinx Base - http://cmusphinx.sourceforge.net/wiki/download
 
 
 
-Pyvona
-	Pygame
-	requests
+Pyvona - https://pypi.python.org/pypi/pyvona/
+	Pygame - http://www.pygame.org/download.shtml
+	requests - https://github.com/kennethreitz/requests/
