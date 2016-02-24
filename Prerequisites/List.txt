@@ -3,3 +3,12 @@ Speech Recognition - https://pypi.python.org/pypi/SpeechRecognition/
   
   
 
+pocketsphinx-python
+	Pocket Sphinx
+		Sphinx Base
+
+
+
+Pyvona
+	Pygame
+	requests
