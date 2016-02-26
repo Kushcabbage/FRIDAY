@@ -1,1 +1,1 @@
-
+FRIDAY is my ongoing attempt at creating an AI. The main functionality is around web interfacing and typical PA type things, but the eventual goal is to add full natural language processing. Combined with learning algorithms this will allow FRIDAY's activity to be intuitively programmed by the user.
