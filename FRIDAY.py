@@ -27,7 +27,7 @@ def Titlecard():
     print("F            RR     RR    IIIIIIIIII  DDDDDDDDD    A            A      Y\n")
 
 
-#PROCESSING/DEBUG FUNCTIONS
+#PROCESSING/DEBUG FUNCTION
 def expand(term):
   if term=="Q":
       return "Question"
