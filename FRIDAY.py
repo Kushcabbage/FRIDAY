@@ -5,6 +5,8 @@ import os
 import webbrowser
 import speech_recognition as sr
 import copy
+import feedparser
+import linecache
 
 global function, Arg, userenter
 global Lastsentence
@@ -63,6 +65,9 @@ functionList = {"Google": Google, "Friday": Friday, "v": Voice}
 
 #Main Task FUNCTIONS
 
+
+
+
 def Command(sentence):
     print("OMG a command!!")
     firsttwo=sentence[0]+sentence[1]
@@ -70,8 +75,32 @@ def Command(sentence):
     if sentence[0]=="Search" or sentence[0]=="search":
         print("Im doing a  web search m8")
         websearch(sentence)
-    if firsttwo=="Look up":
+    if sentence[0]+sentence[1]=="look up":
         print("Doing a lookup")
+
+
+def KATRSScheck(RSS):
+
+    d = feedparser.parse(RSS)
+
+
+    print("Latest entry\n",d["entries"][0]["title"],"-",d["entries"][0]["link"])
+
+    lastdate=linecache.getline("DCWEEKRSS.txt", 1)
+    lastdate=lastdate[:-1]
+    #print(lastdate)
+
+
+
+    if str(d.entries[0].updated)!=lastdate:
+        print("New entry, adding torrent")
+        with open('DCWEEKRSS.txt', 'w') as file:
+            file.writelines(d.entries[0].updated)
+        magnet=d.entries[0].torrent_magneturi
+        webbrowser.open_new_tab(magnet)
+
+
+
 
 
 def websearch(sentence):
@@ -237,6 +266,7 @@ def Voiceinput():
             speech= r.recognize_google(audio)
         except sr.UnknownValueError:
             print("Google Speech Recognition could not understand audio")
+            return 1
 
         except sr.RequestError as e:
             print("Could not request results from Google Speech Recognition service; {0}".format(e))
@@ -337,10 +367,18 @@ def Casualdeconstruct(userenter):
 while True:
 
     Titlecard()
-    Input()
+    #Input()
+    Voiceinput()
     #print("btw, last sentence was """,lastsentence)
-    time.sleep(3)
+##web Deamons
+
+    #KATRSScheck("https://kickass.unblocked.li/usearch/%22DC%20Week%2B%22/?rss=1.xml")
+    time.sleep(2)
+    print("Press any to continue")
+    stop=input()
+
     os.system("cls")
 
 
 
+#TODO ADD DICTIONARY LOOKUP
